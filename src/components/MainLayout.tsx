@@ -1,4 +1,3 @@
-// src/components/MainLayout.tsx
 import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/useAuth';
@@ -11,9 +10,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const { user, logout } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <nav className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
-        <div className="text-xl font-bold">Auth Boilerplate</div>
+    <div className="min-h-screen flex flex-col bg-gray-50">
+      <nav className="bg-[#001F36] shadow-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <div className="text-xl text-white">Auth Boilerplate</div>
         <div className="space-x-4">
           {user ? (
             <>
@@ -34,10 +33,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
             </>
           ) : (
             <>
-              <Link to="/login" className="text-blue-600 hover:underline">
+              <Link to="/login" className="text-white hover:underline">
                 Login
               </Link>
-              <Link to="/register" className="text-blue-600 hover:underline">
+              <Link to="/register" className="text-white hover:underline">
                 Register
               </Link>
             </>
@@ -45,7 +44,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
         </div>
       </nav>
 
-      <main className="flex-grow container mx-auto p-6">{children}</main>
+      <main className="flex-grow w-full p-6">
+        {children}
+      </main>
     </div>
   );
 }

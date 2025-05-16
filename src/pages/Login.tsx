@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useAuth } from '../contexts/useAuth';  // <--- corrected import here
-import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../contexts/useAuth';  // <--- your corrected import
+import { useNavigate, Link } from 'react-router-dom';
 import type { LoginResponse } from '../models/Auth'; // adjust path & name if needed
 
 export default function Login() {
@@ -47,6 +47,20 @@ export default function Login() {
       >
         Login
       </button>
+
+      <div className="mt-4 text-center space-y-2">
+        <p>
+          Don&apos;t have an account?{' '}
+          <Link to="/register" className="text-blue-600 hover:underline">
+            Register here
+          </Link>
+        </p>
+        <p>
+          <Link to="/" className="text-gray-600 hover:underline">
+            Back to Home
+          </Link>
+        </p>
+      </div>
     </form>
   );
 }
